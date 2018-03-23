@@ -26,13 +26,17 @@ func main() {
 
 	}
 	blockh.MerkleRoot = tree.merkleRoot
-	blockh.Timestamp = time.Now().Unix()
+	blockh.Timestamp = time.Date(2018, time.March, 3, 21, 0, 0, 123, time.UTC).String()
+	blockh.Timestamp = time.Now().UTC().String()
 
 	block := Block{}
 	block.Header = blockh
 	block.Transactions = tx
 
-	newblock := CreateBlock(blockh, tx)
-	fmt.Printf("%d", newblock.Header.Nonce)
+	blockchain := NewBlockChain()
+	blockchain.CreateChain()
+	blockchain.NewChain(tx)
+	//NewChain(tx).Push()
+	blockchain.Push(&block)
 
 }
