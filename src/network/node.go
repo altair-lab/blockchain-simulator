@@ -1,21 +1,22 @@
 package main
 
 import (
-	"time"
 	"fmt"
+	"time"
 )
 
-type node struct {
+// Node.
+type Node struct {
 	performance int
 }
 
-func newNode(p int) *node {
-	n := node{}
+func newNode(p int) *Node {
+	n := Node{}
 	n.performance = p
 	return &n
 }
 
-func (n node) mining() {
+func (n Node) mining() {
 	// consensus algorithm
 
 	timer := time.NewTimer(5 * time.Second)
@@ -29,4 +30,3 @@ func (n node) mining() {
 		fmt.Println("timer stopped")
 	}
 }
-
