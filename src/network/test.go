@@ -2,10 +2,10 @@ package main
 
 import (
 	"encoding/json"
-	"os"
-	"time"
 	"fmt"
 	"math/rand"
+	"os"
+	"time"
 )
 
 type Configuration struct {
@@ -26,7 +26,7 @@ func main() {
 	// generate node instances
 	s := rand.NewSource(time.Now().UnixNano())
 	r := rand.New(s)
-	n := make([]*node, configuration.Nodes)
+	n := make([]*Node, configuration.Nodes)
 	for i := 0; i < configuration.Nodes; i++ {
 		n[i] = newNode(r.Intn(100) + 1)
 	}
