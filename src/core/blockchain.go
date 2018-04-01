@@ -1,4 +1,4 @@
-package main
+package core
 
 const MAX_QUEUE_SIZE int = 100
 
